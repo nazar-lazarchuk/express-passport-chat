@@ -1,0 +1,15 @@
+// Логіну на сайт
+POST http://localhost:3030/auth/login
+Content-Type: application/json
+
+{
+	"email": "nazik.lazarchyk@gmail.com",
+	"password": "123456"
+}
+###
+
+// Отримання користувача
+GET http://localhost:3030/user/profile
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDBlZWFkMzQ4NDk2ZTJmMzU4N2I1NDYiLCJuYW1lIjoiTmF6YXIiLCJlbWFpbCI6Im5hemlrLmxhemFyY2h5a0BnbWFpbC5jb20iLCJpYXQiOjE2MTE1OTE0Mjh9.P0Elk5TGxoFjfPs5LYWRfdKxnnCiZzrf5E26DIxuM40
+// Authorization: Bearer [твій_токен_доступу]
