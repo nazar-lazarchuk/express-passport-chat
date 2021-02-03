@@ -1,0 +1,20 @@
+// Створення повідомлення
+POST http://localhost:3030/message/create
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDBlZWFkMzQ4NDk2ZTJmMzU4N2I1NDYiLCJuYW1lIjoiTmF6YXIiLCJlbWFpbCI6Im5hemlrLmxhemFyY2h5a0BnbWFpbC5jb20iLCJpYXQiOjE2MTIzODE1NzV9.DAgItjP1QV97rhOEGWkGK9eQdgf8NxL9toDCKeiHwxc
+
+{
+    "content": "Прив. Як справи?"
+}
+
+###
+
+// Редагування свого повідомлення
+PATCH http://localhost:3030/message/update
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDBlZWFkMzQ4NDk2ZTJmMzU4N2I1NDYiLCJuYW1lIjoiTmF6YXIiLCJlbWFpbCI6Im5hemlrLmxhemFyY2h5a0BnbWFpbC5jb20iLCJpYXQiOjE2MTIzODE1NzV9.DAgItjP1QV97rhOEGWkGK9eQdgf8NxL9toDCKeiHwxc
+
+{
+    "_id": "601b0b66a477d94e34836932",
+    "content": "Привіт*. Як справи?"
+}

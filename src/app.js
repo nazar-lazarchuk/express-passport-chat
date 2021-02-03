@@ -9,9 +9,10 @@ const mongoose = require('mongoose');
 const config = require('./env.json');
 const port = config.APP_PORT;
 
-index = require('./routes/index');
-const user = require('./routes/user');
-const auth = require('./routes/auth');
+const indexRoutes = require('./routes/index');
+const userRoutes = require('./routes/user');
+const authRoutes = require('./routes/auth');
+const messageRoutes = require('./routes/message');
 
 const passport = require('passport');
 
@@ -29,9 +30,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
-app.use('/', index);
-app.use('/user', passport.authenticate('jwt', { session: false }), user);
-app.use('/auth', auth);
+app.use('/', indexRoutes);
+app.use('/user', passport.authenticate('jwt', { session: false }), userRoutes);
+app.use('/auth', authRoutes);
+app.use('/message', passport.authenticate('jwt', { session: false }), messageRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
