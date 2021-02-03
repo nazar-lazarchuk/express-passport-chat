@@ -1,16 +1,8 @@
-const mongoose = require('mongoose');
-const app = require('./app');
+const createApp = require('./createApp');
+const createWs = require('./createWs');
 
 const port = 3030;
+const wsPort = 5000;
 
-app.listen(port, () => {
-  mongoose
-    .connect('mongodb://localhost:27017/chat', {
-      useUnifiedTopology: true,
-      useNewUrlParser: true,
-      useCreateIndex: true,
-    })
-    .then(() => {
-      console.log(`App ready on http://localhost:${port}`);
-    });
-});
+const app = createApp(port);
+createWs(app, wsPort);
