@@ -4,6 +4,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const mongoose = require('mongoose');
+//
+const config = require('./env.json');
+const port = config.APP_PORT;
 
 index = require('./routes/index');
 const user = require('./routes/user');
@@ -34,6 +38,18 @@ app.use(function (req, res, next) {
   const err = new Error('Not Found');
   err.status = 404;
   next(err);
+});
+
+app.listen(port, () => {
+  mongoose
+    .connect('mongodb://localhost:27017/chat', {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+      useCreateIndex: true,
+    })
+    .then(() => {
+      console.log(`App ready on http://localhost:${port}`);
+    });
 });
 
 module.exports = app;
